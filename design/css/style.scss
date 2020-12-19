@@ -1,0 +1,213 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
+
+/* colors */
+$dark:  hsl(0, 0%, 17%);
+$gray: hsl(0, 0%, 59%);
+
+*,*::before,*::after {
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    transition: all .2s ease;
+    box-sizing: border-box;
+    color: $dark;
+}
+
+html {
+    font-size: 18px;
+    font-family: 'Rubik', sans-serif;
+}
+
+label {
+    font-size: 10px;
+    font-weight: 500;
+    color: $gray;
+}
+
+p {
+    font-weight: 700;
+    font-size: 16px;
+}
+
+h1 {
+    color: #fff;
+    font-size: 18px
+    ;
+    font-weight: 500;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+input {
+    outline: none;
+    border: none;
+}
+
+.wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.burger-menu {
+    width: 50px;
+    height: 40px;
+    position: fixed;
+    z-index: 5;
+    fill: crimson;
+    &:hover {
+        cursor: pointer;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.25);
+        fill: red;
+    }
+}
+
+.sample-data {
+    position: fixed;
+    background-color: #f1f1f1;
+    width: 250px;
+    text-align: center;
+    padding: .5rem 1rem 2rem 1rem;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.25);
+    z-index: 4;
+    opacity: 0;
+    visibility: hidden;
+    & > h1 {
+        color: purple;
+    }
+}
+
+.toggled-menu .sample-data {
+    visibility: visible;
+    opacity: 1;
+}
+
+.banner {
+    width: 100%;
+    height: 100%;
+    background: url(/images/pattern-bg.png) no-repeat;
+    background-size: cover;
+    padding-top: 1rem;
+    min-height: 30vh;
+}
+
+.form {
+    margin: 0 auto;
+    width: 90%;
+    height: 100%;
+    max-width: 1100px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem 0;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    &__input {
+        width: 100%;
+        height: 2.5rem;
+        max-width: 500px;
+        position: relative;
+        & > input[type="text"] {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            padding: 0 1rem;
+            font-weight: 500;
+            &:hover {
+                opacity: .9;
+            }
+        }
+        & input[type="image"] {
+            border-top-right-radius: inherit;
+            border-bottom-right-radius: inherit;
+        }
+    }
+    &__input-wrapper {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 3rem;
+        background-color: $dark;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        &:hover {
+            opacity: .5;
+            cursor: pointer;
+        }
+    }
+    &__output {
+        background-color: #fff;
+        border-radius: 10px;
+        width: 100%;
+        height: 100%;
+        min-height: 270px;
+        padding: .5rem 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        box-shadow: 0 .5rem 2rem rgba(0,0,0,0.15);
+        position: absolute;
+        z-index: 2;
+        top: 7rem;
+    }
+    &__label-wrapper {
+        margin-bottom: 8px;
+    }
+}
+
+.footer {
+    text-align: center;
+    & a {
+        color: crimson;
+    }
+}
+@media(max-height: 840px) {
+    .banner {
+        min-height: 260px;
+    }
+    #map {
+        min-height: 350px;
+    }
+}
+@media (min-width: 1440px) {
+    .form {
+        h1 {
+            font-size: 22px;
+        }
+        label {
+            font-size: 12px;
+        }
+        p {
+            font-size: 20px;
+        }
+        &__output {
+            flex-direction: row;
+            padding: 0 1rem;
+            min-height: 150px;
+            height: 100%;
+            top: 10rem;
+        }
+        &__label-wrapper {
+            border-right: 2px solid $gray;
+            padding: 0 1rem;
+            margin: 0;
+            flex: 1;
+            text-align: left;
+            word-wrap: break-word;
+            &:last-child {
+                border: none;
+            }
+        }
+    }
+}
